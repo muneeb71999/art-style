@@ -1,0 +1,255 @@
+.navbar {
+  position: relative;
+  padding-top: 2.4rem;
+  padding-bottom: 2rem;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+
+  @media screen and (max-width: $screen-768) {
+    background-color: white;
+  }
+
+  &.scroll {
+    &::before {
+      background-color: var(--color-primary) !important;
+    }
+  }
+
+  &::before,
+  &::after {
+    display: block;
+    width: 36.5%;
+    height: 103px;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -2;
+    background-color: transparent;
+    border: none;
+
+    @media screen and (max-width: $screen-1024) {
+      background-color: var(--color-primary);
+    }
+
+    @media screen and (max-width: $screen-768) {
+      display: none;
+    }
+  }
+
+  &::after {
+    width: 63.5%;
+    right: auto;
+    left: 0;
+    background-color: white;
+  }
+
+  &-container {
+    @extend .container;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (max-width: $screen-1024) {
+      padding: 0 var(--padding);
+    }
+  }
+
+  &-brand {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.6rem;
+  }
+
+  &-search {
+    min-width: 350px;
+    padding: 18.5px 2rem 18.5px 4.8rem;
+    background-image: url("../images/search.svg");
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: 15px;
+    border: 1px solid #ebebeb;
+    border-radius: 50px;
+    font-family: var(--font-inter);
+    font-size: 1.6rem;
+
+    @media screen and (max-width: $screen-768) {
+      display: none;
+    }
+
+    ::placeholder {
+      font-family: var(--font-inter);
+      font-size: 1.6rem;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &-right {
+    display: flex;
+
+    @media screen and (max-width: $screen-1300) {
+      padding: 24px;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      align-items: flex-start;
+      width: 100%;
+      background-color: var(--color-primary);
+      flex-direction: column;
+      transform: scaleY(0%);
+      transform-origin: top;
+      transition: all 0.2s ease-in-out;
+    }
+
+    @media screen and (max-width: $screen-768) {
+      background-color: white;
+    }
+
+    &.active {
+      transform: scaleY(100%);
+    }
+  }
+
+  &-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 3rem;
+    margin-right: 4rem;
+    z-index: 10;
+
+    @media screen and (max-width: $screen-1300) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &-btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.6rem;
+    @media screen and (max-width: $screen-1300) {
+      margin-top: 16px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  &-btn {
+    font-size: 1.6rem;
+    font-family: var(--font-inter);
+    padding: 12px 24px;
+    border: 1px solid white;
+    transition: all 0.4s ease;
+    color: white;
+    mix-blend-mode: screen;
+
+    @media screen and (max-width: $screen-1300) {
+      margin: 10px 0;
+    }
+
+    @media screen and (max-width: $screen-768) {
+      mix-blend-mode: normal;
+      border-color: black;
+      color: black;
+    }
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: white;
+      border-color: white;
+    }
+  }
+
+  &-link {
+    font-family: var(--font-inter);
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.005em;
+    color: black;
+
+    &-un {
+      position: relative;
+      z-index: 1;
+
+      & .span-1 {
+        color: white;
+
+        @media screen and (max-width: 768px) {
+          color: var(--color-primary);
+        }
+      }
+
+      .span-2 {
+        @media screen and (max-width: 1760px) {
+          color: white;
+        }
+
+        @media screen and (max-width: 768px) {
+          color: var(--color-primary);
+        }
+      }
+    }
+
+    @media screen and (max-width: $screen-1300) {
+      color: white;
+      padding: 1px 0;
+    }
+
+    @media screen and (max-width: $screen-768) {
+      color: black;
+    }
+
+    &-white {
+      @media screen and (max-width: $screen-1500) {
+        color: white;
+      }
+
+      @media screen and (max-width: $screen-768) {
+        color: black;
+      }
+    }
+  }
+
+  &-toggler {
+    display: none;
+    background-color: transparent;
+
+    @media screen and (max-width: $screen-1300) {
+      display: block;
+    }
+
+    svg {
+      width: 36px;
+      height: 36px;
+      stroke: white;
+
+      @media screen and (max-width: $screen-768) {
+        stroke: var(--color-primary);
+      }
+    }
+  }
+}
+
+.navbar-search-box-mobile {
+  display: none;
+
+  @media screen and (max-width: $screen-768) {
+    display: block !important;
+    width: 100%;
+
+    .navbar-search {
+      display: block;
+      width: 90vw !important;
+      min-width: 90vw !important;
+    }
+  }
+}

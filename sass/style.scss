@@ -1,0 +1,76 @@
+:root {
+  --backround-color: #161616;
+  --btn-color: #0094d7;
+
+  // Font
+  --font-jura: "Jura", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  // Colors
+  --color-white: black;
+  --color-primary: #0c2a52;
+  --color-black: #161616;
+  --color-blue: #0094d7;
+
+  // Spacing
+  --padding: 40px;
+
+  // Container
+  --container: 1280px;
+}
+
+// Query Width
+$screen-1700: 1700px;
+$screen-1500: 1500px;
+$screen-1440: 1440px;
+$screen-1400: 1400px;
+$screen-1300: 1300px;
+$screen-1260: 1260px;
+$screen-1160: 1160px;
+$screen-1024: 1024px;
+$screen-850: 850px;
+$screen-768: 768px;
+$screen-700: 700px;
+$screen-600: 600px;
+$screen-500: 500px;
+$screen-400: 400px;
+
+// Base
+@import "./base/base";
+
+// Includes
+@import "./abstract/heading";
+@import "./abstract/utils";
+
+// Components
+@import "./components/button";
+@import "./components/navbar";
+
+// Sections
+@import "./sections/hero";
+@import "./sections/art";
+@import "./sections/trending";
+@import "./sections/create";
+@import "./sections/partner";
+@import "./sections/started";
+@import "./sections/footer";
+
+@media screen and (max-width: $screen-1300) {
+  :root {
+    --container: 998px;
+    --padding: 0;
+  }
+}
+
+@media screen and (max-width: $screen-1024) {
+  :root {
+    --container: 998px;
+    --padding: 48px;
+  }
+}
+
+@media screen and (max-width: $screen-400) {
+  :root {
+    --padding: 16px;
+  }
+}

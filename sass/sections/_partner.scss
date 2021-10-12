@@ -1,0 +1,29 @@
+.partner {
+  &-container {
+    @extend .container;
+    padding: 0 var(--padding);
+  }
+
+  &-cards {
+    margin-top: 56px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  &-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 280px;
+    width: 100%;
+
+    padding: 32px;
+    background-color: var(--color-primary);
+
+    &-img {
+      height: 56px;
+    }
+  }
+}
